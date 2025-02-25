@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20ac7834-d204-49d1-97cc-c156822f4cc2" name="변경" comment="setting">
+    <list default="true" id="20ac7834-d204-49d1-97cc-c156822f4cc2" name="변경" comment="Lv1. 완료(양의 정수 입력, 사칙연산 입력, 계산, 연산 오류 예외처리, 반복문 사용 및 무한반복, q입력시 반복종료)">
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +80,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740454398695</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Lv1. 완료(양의 정수 입력, 사칙연산 입력, 계산, 연산 오류 예외처리, 반복문 사용 및 무한반복, q입력시 반복종료)">
+      <option name="closed" value="true" />
+      <created>1740466009994</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1740466009994</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -99,6 +107,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="setting" />
-    <option name="LAST_COMMIT_MESSAGE" value="setting" />
+    <MESSAGE value="Lv1. 완료(양의 정수 입력, 사칙연산 입력, 계산, 연산 오류 예외처리, 반복문 사용 및 무한반복, q입력시 반복종료)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lv1. 완료(양의 정수 입력, 사칙연산 입력, 계산, 연산 오류 예외처리, 반복문 사용 및 무한반복, q입력시 반복종료)" />
   </component>
 </project>

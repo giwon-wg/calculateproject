@@ -6,13 +6,13 @@ public class Main {
 
         int a = 0;
         int b = 0;
-        int result = 0;
+        double result = 0;
         String c;
 
         Scanner sc = new Scanner(System.in);
 
         for (int i = 1; ; i++) {
-            System.out.printf("\n========계산 준비 완료 / 사용량 : %d회==========\n\n", i);
+            System.out.printf("\n=======계산 준비 완료=======\n\n", i);
             System.out.println("첫번째 숫자를 입력하세요");
             System.out.print(": ");
             while (!sc.hasNextInt()){
@@ -63,7 +63,7 @@ public class Main {
                         System.out.println("분모에는 0이 들어갈 수 없습니다."+ "\n");
                         break;
                     }
-                    result =  a / b;
+                    result = (double) a / b;
                     System.out.println("\n"+ a + c + b + "=" + result);
                     break;
 
@@ -72,6 +72,7 @@ public class Main {
             System.out.println("종료 하시려면 q를 입력해주세요");
             String out = sc.next();
             if (Objects.equals(out, "q")){
+                System.out.printf("\n=======계산 종료 / 총 사용량 : %d회=======\n",i);
                 break;
             }
         }
