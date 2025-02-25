@@ -6,13 +6,13 @@ public class Main {
 
         int a = 0;
         int b = 0;
-        int result = 0;
+        double result = 0;
         String c;
 
         Scanner sc = new Scanner(System.in);
 
         for (int i = 1; ; i++) {
-            System.out.printf("\n========계산 준비 완료 / 사용량 : %d회==========\n\n", i);
+            System.out.printf("\n=======계산 준비 완료=======\n\n", i);
             System.out.println("첫번째 숫자를 입력하세요");
             System.out.print(": ");
             while (!sc.hasNextInt()){
@@ -43,38 +43,31 @@ public class Main {
                 }
             }
 
-
-
-            switch (c) {
-                case "+":
-                    result = a + b;
-                    System.out.println("\n"+ a + c + b + "=" + result + "\n");
-                    break;
-                case "-":
-                    result = a - b;
-                    System.out.println("\n"+ a + c + b + "=" + result+ "\n");
-                    break;
-                case "*":
-                    result = a * b;
-                    System.out.println("\n"+ a + c + b + "=" + result+ "\n");
-                    break;
-                case "/":
-                    if(b == 0){
-                    System.out.println("분모에는 0이 들어갈 수 없습니다."+ "\n");
+            try {
+                switch (c) {
+                    case "+":
+                        result = ArithmeticCalculato.add(a, b);
+                        break;
+                    case "-":
+                        result = ArithmeticCalculato.sub(a, b);
+                        break;
+                    case "*":
+                        result = ArithmeticCalculato.mul(a, b);
+                        break;
+                    case "/":
+                        result = ArithmeticCalculato.div(a, b);
+                        break;
+                }
+                System.out.println("\n"+ a + c + b + "=" + result+ "\n");
+                System.out.println("종료 하시려면 q를 입력해주세요");
+                String out = sc.next();
+                if (Objects.equals(out, "q")){
+                    System.out.printf("\n=======계산 종료 / 총 사용량 : %d회=======\n",i);
                     break;
                 }
-                    result =  a / b;
-                    System.out.println("\n"+ a + c + b + "=" + result);
-                    break;
-
-            }
-
-            System.out.println("종료 하시려면 q를 입력해주세요");
-            String out = sc.next();
-            if (Objects.equals(out, "q")){
-                break;
+            } catch (Error e) {
+                System.out.println(e.getMessage());
             }
         }
-
     }
 }
