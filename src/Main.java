@@ -59,9 +59,9 @@ public class Main {
                         break;
                 }
                 System.out.println("\n"+ a + c + b + "=" + result+ "\n");
-                System.out.println("종료 하시려면 q를 입력해주세요");
+                System.out.println("종료 하시려면 exit를 입력해주세요");
                 String out = sc.next();
-                if (Objects.equals(out, "q")){
+                if (Objects.equals(out, "exit")){
                     System.out.printf("\n=======계산 종료 / 총 사용량 : %d회=======\n",i);
                     break;
                 }
