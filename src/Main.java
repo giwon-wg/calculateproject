@@ -19,25 +19,33 @@ public class Main {
             switch (c) {
                 case "+":
                     result = a + b;
+                    System.out.println(a + c + b + "=" + result);
                     break;
                 case "-":
                     result = a - b;
+                    System.out.println(a + c + b + "=" + result);
                     break;
                 case "*":
                     result = a * b;
+                    System.out.println(a + c + b + "=" + result);
                     break;
                 case "/":
-                    result = a / b;
+                    if(b == 0){
+                        System.out.println("분모에는 0이 들어갈 수 없습니다.");
+                        break;
+                    }
+                    result =  a / b;
+                    System.out.println(a + c + b + "=" + result);
                     break;
+
             }
 
-            System.out.println(a + c + b + "=" + result);
             System.out.println("종료 하시려면 q를 입력해주세요");
             String out = sc.next();
             if (Objects.equals(out, "q")){
                 break;
             }
-            sc.close();
         }
+
     }
 }
