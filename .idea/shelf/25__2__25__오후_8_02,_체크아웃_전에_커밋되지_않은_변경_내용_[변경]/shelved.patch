@@ -1,0 +1,44 @@
+Index: src/ArithmeticCalculato.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class ArithmeticCalculato {\r\n\r\n    public static int add(int a, int b){\r\n\r\n        return a + b;\r\n    }\r\n\r\n    public static int sub(int a, int b) {\r\n        return a - b;\r\n    }\r\n\r\n    public static int mul(int a, int b){\r\n        return a * b;\r\n    }\r\n\r\n    public static double div(int a, int b){\r\n        if (b == 0){\r\n            throw new Error(\"분모에는 0이 들어갈 수 없습니다\");\r\n        }\r\n        return (double) a / b;\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/src/ArithmeticCalculato.java b/src/ArithmeticCalculato.java
+--- a/src/ArithmeticCalculato.java	(revision 795efbf427690e3f0322be5dd279e7060edf15cc)
++++ b/src/ArithmeticCalculato.java	(date 1740480827352)
+@@ -1,8 +1,22 @@
++import java.util.ArrayList;
++import java.util.List;
++
+ public class ArithmeticCalculato {
+ 
++    private List<String> history;
++
++    public ArithmeticCalculato(){
++        history = new ArrayList<>();
++    }
++
++    private void addHistory(String history, int result){
++        history.add(operation + " = " + result);
++    }
++
+     public static int add(int a, int b){
+-
+-        return a + b;
++        int result = a + b;
++        addHistory(a + " - " + b, result);
++        return result;
+     }
+ 
+     public static int sub(int a, int b) {
+@@ -15,8 +29,9 @@
+ 
+     public static double div(int a, int b){
+         if (b == 0){
+-            throw new Error("분모에는 0이 들어갈 수 없습니다");
++            throw new ArithmeticException("분모에는 0이 들어갈 수 없습니다");
+         }
+         return (double) a / b;
+     }
++
+ }

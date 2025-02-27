@@ -1,0 +1,199 @@
+Index: src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.util.Objects;\r\nimport java.util.Scanner;\r\n\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n\r\n        int a = 0;\r\n        int b = 0;\r\n        double result = 0;\r\n        String c;\r\n\r\n        Scanner sc = new Scanner(System.in);\r\n\r\n        for (int i = 1; ; i++) {\r\n            System.out.printf(\"\\n=======계산 준비 완료=======\\n\\n\", i);\r\n            System.out.println(\"첫번째 숫자를 입력하세요\");\r\n            System.out.print(\": \");\r\n            while (!sc.hasNextInt()){\r\n                System.out.println(\"잘못된 값을 입력하였습니다. 다시 입력해주세요\");\r\n                System.out.print(\": \");\r\n                sc.next();\r\n            }\r\n            a = sc.nextInt();\r\n\r\n            System.out.println(\"두번째 숫자를 입력하세요\");\r\n            System.out.print(\": \");\r\n            while (!sc.hasNextInt()){\r\n                System.out.println(\"잘못된 값을 입력하였습니다. 다시 입력해주세요\");\r\n                System.out.print(\": \");\r\n                sc.next();\r\n            }\r\n            b = sc.nextInt();\r\n\r\n            System.out.println(\"사칙연산 기호를 입렵하세요(+, -, *, /)\");\r\n            System.out.print(\": \");\r\n            while(true){\r\n                c = sc.next();\r\n                if(c.equals(\"+\") || c.equals(\"-\") || c.equals(\"*\") || c.equals(\"/\")){\r\n                    break;\r\n                } else{\r\n                    System.out.println(\"잘못된 값을 입력하였습니다. 다시 입력해주세요\");\r\n                    System.out.print(\": \");\r\n                }\r\n            }\r\n\r\n            try {\r\n                switch (c) {\r\n                    case \"+\":\r\n                        result = ArithmeticCalculato.add(a, b);\r\n                        break;\r\n                    case \"-\":\r\n                        result = ArithmeticCalculato.sub(a, b);\r\n                        break;\r\n                    case \"*\":\r\n                        result = ArithmeticCalculato.mul(a, b);\r\n                        break;\r\n                    case \"/\":\r\n                        result = ArithmeticCalculato.div(a, b);\r\n                        break;\r\n                }\r\n                System.out.println(\"\\n\"+ a + c + b + \"=\" + result+ \"\\n\");\r\n                System.out.println(\"종료 하시려면 exit를 입력해주세요\");\r\n                String out = sc.next();\r\n                if (Objects.equals(out, \"exit\")){\r\n                    System.out.printf(\"\\n=======계산 종료 / 총 사용량 : %d회=======\\n\",i);\r\n                    break;\r\n                }\r\n            } catch (Error e) {\r\n                System.out.println(e.getMessage());\r\n            }\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Main.java b/src/Main.java
+--- a/src/Main.java	(revision 795efbf427690e3f0322be5dd279e7060edf15cc)
++++ b/src/Main.java	(date 1740546436628)
+@@ -6,13 +6,13 @@
+ 
+         int a = 0;
+         int b = 0;
+-        double result = 0;
++        int result = 0;
+         String c;
+ 
+         Scanner sc = new Scanner(System.in);
+ 
+         for (int i = 1; ; i++) {
+-            System.out.printf("\n=======계산 준비 완료=======\n\n", i);
++            System.out.printf("\n========계산 준비 완료 / 사용량 : %d회==========\n\n", i);
+             System.out.println("첫번째 숫자를 입력하세요");
+             System.out.print(": ");
+             while (!sc.hasNextInt()){
+@@ -43,31 +43,38 @@
+                 }
+             }
+ 
+-            try {
+-                switch (c) {
+-                    case "+":
+-                        result = ArithmeticCalculato.add(a, b);
+-                        break;
+-                    case "-":
+-                        result = ArithmeticCalculato.sub(a, b);
+-                        break;
+-                    case "*":
+-                        result = ArithmeticCalculato.mul(a, b);
+-                        break;
+-                    case "/":
+-                        result = ArithmeticCalculato.div(a, b);
+-                        break;
++
++
++            switch (c) {
++                case "+":
++                    result = a + b;
++                    System.out.println("\n"+ a + c + b + "=" + result + "\n");
++                    break;
++                case "-":
++                    result = a - b;
++                    System.out.println("\n"+ a + c + b + "=" + result+ "\n");
++                    break;
++                case "*":
++                    result = a * b;
++                    System.out.println("\n"+ a + c + b + "=" + result+ "\n");
++                    break;
++                case "/":
++                    if(b == 0){
++                    System.out.println("분모에는 0이 들어갈 수 없습니다."+ "\n");
++                    break;
+                 }
+-                System.out.println("\n"+ a + c + b + "=" + result+ "\n");
+-                System.out.println("종료 하시려면 exit를 입력해주세요");
+-                String out = sc.next();
+-                if (Objects.equals(out, "exit")){
+-                    System.out.printf("\n=======계산 종료 / 총 사용량 : %d회=======\n",i);
+-                    break;
+-                }
+-            } catch (Error e) {
+-                System.out.println(e.getMessage());
++                    result =  a / b;
++                    System.out.println("\n"+ a + c + b + "=" + result);
++                    break;
++
++            }
++
++            System.out.println("종료 하시려면 q를 입력해주세요");
++            String out = sc.next();
++            if (Objects.equals(out, "q")){
++                break;
+             }
+         }
++
+     }
+ }
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"20ac7834-d204-49d1-97cc-c156822f4cc2\" name=\"변경\" comment=\"setting\">\r\n      <change beforePath=\"$PROJECT_DIR$/src/ArithmeticCalculato.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/ArithmeticCalculato.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 2\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2tW3hKFkLCg9vP5X9BkOga4KAgB\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,\r\n    &quot;애플리케이션.Main.executor&quot;: &quot;Run&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\r\n      <module name=\"calculateproject\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"애플리케이션.Main\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.189\" />\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.189\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"애플리케이션 수준\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"디폴트 작업\">\r\n      <changelist id=\"20ac7834-d204-49d1-97cc-c156822f4cc2\" name=\"변경\" comment=\"\" />\r\n      <created>1740454120905</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1740454120905</updated>\r\n      <workItem from=\"1740454121968\" duration=\"1410000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"setting\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1740454398695</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1740454398695</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"setting\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"setting\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 795efbf427690e3f0322be5dd279e7060edf15cc)
++++ b/.idea/workspace.xml	(date 1740546442194)
+@@ -4,8 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="20ac7834-d204-49d1-97cc-c156822f4cc2" name="변경" comment="setting">
+-      <change beforePath="$PROJECT_DIR$/src/ArithmeticCalculato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ArithmeticCalculato.java" afterDir="false" />
++    <list default="true" id="20ac7834-d204-49d1-97cc-c156822f4cc2" name="변경" comment="기본 뼈대 코딩">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -13,6 +14,11 @@
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="main" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="ProjectColorInfo">{
+@@ -28,7 +34,7 @@
+   &quot;keyToString&quot;: {
+     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;div&quot;,
+     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+@@ -51,6 +57,9 @@
+     <recent_temporary>
+       <list>
+         <item itemvalue="애플리케이션.Main" />
++        <item itemvalue="애플리케이션.Main" />
++        <item itemvalue="애플리케이션.Main" />
++        <item itemvalue="애플리케이션.Main" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -70,7 +79,7 @@
+       <option name="number" value="Default" />
+       <option name="presentableId" value="Default" />
+       <updated>1740454120905</updated>
+-      <workItem from="1740454121968" duration="1410000" />
++      <workItem from="1740454121968" duration="3865000" />
+     </task>
+     <task id="LOCAL-00001" summary="setting">
+       <option name="closed" value="true" />
+@@ -80,7 +89,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1740454398695</updated>
+     </task>
+-    <option name="localTasksCounter" value="2" />
++    <task id="LOCAL-00002" summary="기본 뼈대 코딩">
++      <option name="closed" value="true" />
++      <created>1740457378885</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1740457378886</updated>
++    </task>
++    <option name="localTasksCounter" value="3" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -91,7 +108,19 @@
+       <map>
+         <entry key="MAIN">
+           <value>
+-            <State />
++            <State>
++              <option name="FILTERS">
++                <map>
++                  <entry key="branch">
++                    <value>
++                      <list>
++                        <option value="div" />
++                      </list>
++                    </value>
++                  </entry>
++                </map>
++              </option>
++            </State>
+           </value>
+         </entry>
+       </map>
+@@ -99,6 +128,7 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="setting" />
+-    <option name="LAST_COMMIT_MESSAGE" value="setting" />
++    <MESSAGE value="기본 뼈대 코딩" />
++    <option name="LAST_COMMIT_MESSAGE" value="기본 뼈대 코딩" />
+   </component>
+ </project>
+\ No newline at end of file
