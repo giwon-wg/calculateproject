@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20ac7834-d204-49d1-97cc-c156822f4cc2" name="변경" comment="LV1, LV2 완료">
+    <list default="true" id="20ac7834-d204-49d1-97cc-c156822f4cc2" name="변경" comment="enum으로 기호 관리">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OperatorType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OperatorType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Secondlevel" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -42,7 +43,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Lv3",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -94,7 +95,7 @@
       <option name="presentableId" value="Default" />
       <updated>1740454120905</updated>
       <workItem from="1740454121968" duration="1410000" />
-      <workItem from="1740622442968" duration="11882000" />
+      <workItem from="1740622442968" duration="20109000" />
     </task>
     <task id="LOCAL-00001" summary="setting">
       <option name="closed" value="true" />
@@ -120,7 +121,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740634683030</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="enum으로 기호 관리">
+      <option name="closed" value="true" />
+      <created>1740637238643</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1740637238643</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,6 +150,7 @@
     <MESSAGE value="setting" />
     <MESSAGE value="LV2, 연산 클래스 추가" />
     <MESSAGE value="LV1, LV2 완료" />
-    <option name="LAST_COMMIT_MESSAGE" value="LV1, LV2 완료" />
+    <MESSAGE value="enum으로 기호 관리" />
+    <option name="LAST_COMMIT_MESSAGE" value="enum으로 기호 관리" />
   </component>
 </project>

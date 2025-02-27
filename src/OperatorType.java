@@ -1,3 +1,4 @@
+//도전과제 Enum 구현
 public enum OperatorType {
     add('+'), sub('-'), mul('*'), div('/');
 
@@ -5,10 +6,12 @@ public enum OperatorType {
     OperatorType(char symbol) {
         this.symbol = symbol;
     }
+
     public char getSymbol() {
         return symbol;
     }
 
+    //입력 받은 기호와 해당하는 Enum 찾기
     public static OperatorType getOperatorType(char symbol) {
         for (OperatorType operatorType : OperatorType.values()) {
             if (operatorType.getSymbol() == symbol) {
