@@ -16,12 +16,12 @@ public class App {
 
             //연산을 위한 값 입력받기
             int fstVal = getdataval(sc, "첫번째 숫자를 입력하세요.");
-            char mathSymbol = getdatasymol(sc, "사칙연산 기호를 입렵하세요(+, -, *, /)");
+            OperatorType operatortype = getdatasymol(sc, "사칙연산 기호를 입렵하세요(+, -, *, /)");
             int sndVal = getdataval(sc, "두번째 숫자를 입력하세요.");
 
             //연산 처리(Calculator.java)
-            int result = calculator.calculate(fstVal, sndVal, mathSymbol);
-            System.out.printf("결과값 :\n%d %c %d = %d\n\n", fstVal, mathSymbol, sndVal, result);
+            int result = calculator.calculate(fstVal, sndVal, operatortype);
+            System.out.printf("결과값 :\n%d %c %d = %d\n\n", fstVal, operatortype.getSymbol(), sndVal, result);
 
 
             //getter 를 사용해 데이터 받기
@@ -57,20 +57,23 @@ public class App {
     }
 
     // 기호 입력받기 매서드
-    private static char getdatasymol(Scanner sc, String msg){
+    private static OperatorType getdatasymol(Scanner sc, String msg){
         System.out.println(msg);
         System.out.print(": ");
         while(true){
             String input = sc.next();
-            char math_symbol = input.charAt(0);
             System.out.println();
-            if(math_symbol == '+' || math_symbol == '-' || math_symbol == '*' || math_symbol == '/'){
-                return math_symbol;
-            } else{
-                System.out.println("잘못된 값을 입력하였습니다.");
-                System.out.print(": ");
+            if(input.length() == 1){
+                char symbol = input.charAt(0);
+                try {
+                    return OperatorType.getOperatorType(symbol);
+                } catch (IllegalArgumentException e){
+                    System.out.println(e.getMessage());
+                    System.out.print(": ");
+                }
             }
         }
+
     }
 
 }

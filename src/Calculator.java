@@ -10,23 +10,22 @@ public class Calculator {
         this.history = new ArrayList<>();
     }
 
-
-    //기능
-    public int calculate(int a, int b, char math_symbol) {
+    //연산
+    public int calculate(int a, int b, OperatorType operator) {
         int result = 0;
         String savedata;
 
-        switch (math_symbol) {
-            case '+':
+        switch (operator) {
+            case add:
                 result = a + b;
                 break;
-            case '-':
+            case sub:
                 result = a - b;
                 break;
-            case '*':
+            case mul:
                 result = a * b;
                 break;
-            case '/':
+            case div:
                 if (b == 0) {
                     System.out.println("분모에는 0이 들어갈 수 없습니다." + "\n");
                     return 0;
@@ -35,7 +34,7 @@ public class Calculator {
                 break;
         }
 
-        savedata = a + " " + math_symbol + " " + b + " = " + result;
+        savedata = a + " " + operator.getSymbol() + " " + b + " = " + result;
         setHistory(savedata); //setHistory 에서 저장
         return result;
     }

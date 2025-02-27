@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20ac7834-d204-49d1-97cc-c156822f4cc2" name="변경" comment="LV2, 연산 클래스 추가">
-      <change afterPath="$PROJECT_DIR$/src/Calculator.java" afterDir="false" />
+    <list default="true" id="20ac7834-d204-49d1-97cc-c156822f4cc2" name="변경" comment="LV1, LV2 완료">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calculator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +94,7 @@
       <option name="presentableId" value="Default" />
       <updated>1740454120905</updated>
       <workItem from="1740454121968" duration="1410000" />
-      <workItem from="1740622442968" duration="8723000" />
+      <workItem from="1740622442968" duration="11882000" />
     </task>
     <task id="LOCAL-00001" summary="setting">
       <option name="closed" value="true" />
@@ -113,7 +112,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740551257637</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="LV1, LV2 완료">
+      <option name="closed" value="true" />
+      <created>1740634683030</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1740634683030</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,6 +140,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="setting" />
     <MESSAGE value="LV2, 연산 클래스 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="LV2, 연산 클래스 추가" />
+    <MESSAGE value="LV1, LV2 완료" />
+    <option name="LAST_COMMIT_MESSAGE" value="LV1, LV2 완료" />
   </component>
 </project>
