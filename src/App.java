@@ -40,7 +40,6 @@ public class App {
             if(yn == 'y'){
                 Number Value2 = getdataval(sc, "\n값을 입력 하세요");
                 List<Double> result2 = calculator.filterVal(Value2);
-
                 if(result2.isEmpty()){
                     System.out.println("\n목록");
                     System.out.println("=========");
