@@ -105,18 +105,3 @@ Output: tan(60) = 1.73
 
 ---
 
-## 📌 License
-This project is licensed under the **MIT License**.
-```
-MIT License
-Copyright ...
-```
-
----
-
-🚀 **Run your powerful calculator now!** 😊🔥
-```sh
-javac Main.java
-java Main
-```
-
