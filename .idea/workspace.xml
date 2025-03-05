@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20ac7834-d204-49d1-97cc-c156822f4cc2" name="변경" comment="개별 과제 완료">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/25__2__25___8_02__________1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/25__2__25__오후_8_02,_체크아웃_전에_커밋되지_않은_변경_내용_[변경]1/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OperatorType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OperatorType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

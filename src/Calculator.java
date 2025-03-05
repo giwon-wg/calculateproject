@@ -15,30 +15,34 @@ public class Calculator<T extends Number> {
     public double calculate(T fstVal, T sndVal, OperatorType operator) {
         double result = 0;
         String savedata;
-
         double fstValDouble = fstVal.doubleValue();
-        double sndValDouble = sndVal.doubleValue();
 
-        switch (operator) {
-            case add:
-                result = fstValDouble + sndValDouble;
-                break;
-            case sub:
-                result = fstValDouble - sndValDouble;
-                break;
-            case mul:
-                result = fstValDouble * sndValDouble;
-                break;
-            case div:
-                if (sndValDouble == 0) {
-                    System.out.println("분모에는 0이 들어갈 수 없습니다." + "\n");
-                    return 0;
-                }
-                result = fstValDouble / sndValDouble;
-                break;
+        if(operator.monomial()){
+            result = Math.sqrt(fstValDouble);
+            savedata = "sqrt(" + fstVal + ") = " + result;
+        }else {
+            double sndValDouble = sndVal.doubleValue();
+            switch (operator) {
+                case add:
+                    result = fstValDouble + sndValDouble;
+                    break;
+                case sub:
+                    result = fstValDouble - sndValDouble;
+                    break;
+                case mul:
+                    result = fstValDouble * sndValDouble;
+                    break;
+                case div:
+                    if (sndValDouble == 0) {
+                        System.out.println("분모에는 0이 들어갈 수 없습니다." + "\n");
+                        return 0;
+                    }
+                    result = fstValDouble / sndValDouble;
+                    break;
+            }
+            //필수 LV2 setter 사용 데이터 저장
+            savedata = fstVal + " " + operator.getSymbol() + " " + sndVal + " = " + result;
         }
-        //필수 LV2 setter 사용 데이터 저장
-        savedata = fstVal + " " + operator.getSymbol() + " " + sndVal + " = " + result;
         setHistory(savedata); //setHistory 에서 저장
         return result;
     }

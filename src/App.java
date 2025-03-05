@@ -34,7 +34,9 @@ public class App {
             if(yesNo == 'y'){
                 String[] parsed;
                 while(true){
-                    System.out.print("수식을 입력하세요(2 + 4, 2*5)\n: ");
+                    System.out.println("수식을 입력하세요");
+                    System.out.println("ex) a (+, -, *, /) b");
+                    System.out.print("ex) sqrt(a)\n: ");
                     String input = sc.nextLine();
                     parsed = parseExpression(input);
                     if(parsed != null){
@@ -42,9 +44,16 @@ public class App {
                     } // 오타 예외 처리
                     System.out.println("잘못된 값을 입력하였습니다.");
                 }
-                fstVal = getdata(parsed[0]);
-                operatortype = OperatorType.getOperatorType(parsed[1].charAt(0));
-                sndVal = getdata(parsed[2]);
+
+                if(parsed[0].equals("sqrt")){
+                    fstVal = getdata(parsed[1]);
+                    operatortype = OperatorType.sqrt;
+                    sndVal = null;
+                } else {
+                    fstVal = getdata(parsed[0]);
+                    operatortype = OperatorType.getOperatorType(parsed[1].charAt(0));
+                    sndVal = getdata(parsed[2]);
+                }
             } else {
                 fstVal = getdata(getnum(sc, "첫번째 숫자를 입력하세요."));
                 System.out.println();
@@ -57,10 +66,16 @@ public class App {
 
             //연산 처리(Calculator.java)
             double result = calculator.calculate(fstVal, sndVal, operatortype);
-            System.out.printf("\n결과값 :\n%s %c %s = %s\n\n", fstVal, operatortype.getSymbol(), sndVal, result);
 
+            //계산값 출력
+            List<String> calculatedValue = calculator.getHistory(); // 계산 기록 가져오기
+            System.out.println("계산값: ");
+            if (!calculatedValue.isEmpty()) { // 리스트가 비어있지 않다면
+                System.out.println(calculatedValue.get(calculatedValue.size() - 1)); // 마지막(최근) 연산 출력
+            }
+            System.out.println();
 
-            //getter 를 사용해 데이터 받기
+            //getter 를 사용해 데이터 받기 and 최근 계산값 10개 출력
             System.out.println("최근 계산값");
             for (String history : calculator.getHistory()) {
                 System.out.println(history);
@@ -142,6 +157,10 @@ public class App {
     //개선된 계산기
     public static String[] parseExpression(String input){
         input = input.replace(" ",""); // 공백 제거
+
+        if(input.startsWith("sqrt(") && input.endsWith(")")){
+            return new String[]{"sqrt", input.substring(5, input.length() - 1)};
+        }
 
         Pattern pattern = Pattern.compile("(\\d+(?:\\.\\d+)?)([+\\-*/])(\\d+(?:\\.\\d+)?)"); //정규 표현식(소수점 허용)
         Matcher matcher = pattern.matcher(input);

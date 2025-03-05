@@ -1,6 +1,6 @@
 //도전과제 Enum 구현
 public enum OperatorType {
-    add('+'), sub('-'), mul('*'), div('/');
+    add('+'), sub('-'), mul('*'), div('/'), sqrt('s');
 
     private final char symbol;
     OperatorType(char symbol) {
@@ -20,4 +20,9 @@ public enum OperatorType {
         }
         throw new IllegalArgumentException("연산 기호를 확인해주세요");
     }
+
+    public boolean monomial(){
+        return this == sqrt;
+    }
+
 }
