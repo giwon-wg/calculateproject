@@ -35,8 +35,8 @@ public class App {
                 String[] parsed;
                 while(true){
                     System.out.println("수식을 입력하세요");
-                    System.out.println("ex) a (+, -, *, /) b");
-                    System.out.print("ex) sqrt(a)\n: ");
+                    System.out.println("ex) a (+, -, *, /, %, ^) b");
+                    System.out.print("ex) sqrt(a), sin(a), tan(a), cos(a), log(a)\n: ");
                     String input = sc.nextLine();
                     parsed = parseExpression(input);
                     if(parsed != null){
@@ -45,9 +45,9 @@ public class App {
                     System.out.println("잘못된 값을 입력하였습니다.");
                 }
 
-                if(parsed[0].equals("sqrt")){
+                if(isUnaryOperator(parsed[0])) {
+                    operatortype = OperatorType.getOperatorType(parsed[0].charAt(0)); // 한 글자로 변환된 값 사용
                     fstVal = getdata(parsed[1]);
-                    operatortype = OperatorType.sqrt;
                     sndVal = null;
                 } else {
                     fstVal = getdata(parsed[0]);
@@ -159,10 +159,18 @@ public class App {
         input = input.replace(" ",""); // 공백 제거
 
         if(input.startsWith("sqrt(") && input.endsWith(")")){
-            return new String[]{"sqrt", input.substring(5, input.length() - 1)};
+            return new String[]{"qrt", input.substring(5, input.length() - 1)};
+        } else if (input.startsWith("log(") && input.endsWith(")")) {
+            return new String[]{"log", input.substring(4, input.length() - 1)};
+        } else if (input.startsWith("sin(") && input.endsWith(")")) {
+            return new String[]{"sin", input.substring(4, input.length() - 1)};
+        } else if (input.startsWith("cos(") && input.endsWith(")")) {
+            return new String[]{"cos", input.substring(4, input.length() - 1)};
+        } else if (input.startsWith("tan(") && input.endsWith(")")) {
+            return new String[]{"tan", input.substring(4, input.length() - 1)};
         }
 
-        Pattern pattern = Pattern.compile("(\\d+(?:\\.\\d+)?)([+\\-*/])(\\d+(?:\\.\\d+)?)"); //정규 표현식(소수점 허용)
+        Pattern pattern = Pattern.compile("(\\d+(?:\\.\\d+)?)([+\\-*/^%])(\\d+(?:\\.\\d+)?)"); //정규 표현식(소수점 허용)
         Matcher matcher = pattern.matcher(input);
 
         if(matcher.matches()){
@@ -172,23 +180,7 @@ public class App {
         }
     }
 
-    //정수 입력받기 매서드 // 제네릭 활용 데이터 타입 변환
-//    private static <T extends Number> T getdataval(Scanner sc, String msg){
-//        System.out.println(msg);
-//        System.out.print(": ");
-//
-//        while (true){
-//            String input = sc.next();
-//            try{
-//                if(input.contains(".")){
-//                    return (T) Double.valueOf(input);
-//                } else {
-//                    return (T) Integer.valueOf(input);
-//                }
-//            } catch (NumberFormatException e){ // 오타 예외 처리
-//                System.out.println("잘못된 값을 입력하였습니다.");
-//                System.out.print(": ");
-//            }
-//        }
-//    }
+    private static boolean isUnaryOperator(String input) {
+        return input.equals("qrt") || input.equals("log") || input.equals("sin") || input.equals("cos") || input.equals("tan");
+    }
 }

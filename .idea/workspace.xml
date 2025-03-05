@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20ac7834-d204-49d1-97cc-c156822f4cc2" name="변경" comment="개별 과제 완료">
+    <list default="true" id="20ac7834-d204-49d1-97cc-c156822f4cc2" name="변경" comment="개별 과제 개선판&#10;1. parseExpression 활용으로 수식 전체 입력 가능&#10;2. 정수 입력과 데이터 타입 변환 메서드를 분리하여 데이터 타입 변환 메서드 재활용&#10;3. ReadMe 추가&#10;4. sqrt(a) 연산 기능 추가&#10;5. sqrt(a) 기능 추가로 계산값 부분 수정 진행">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calculator.java" afterDir="false" />
@@ -159,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740646087134</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="개별 과제 개선판&#10;1. parseExpression 활용으로 수식 전체 입력 가능&#10;2. 정수 입력과 데이터 타입 변환 메서드를 분리하여 데이터 타입 변환 메서드 재활용&#10;3. ReadMe 추가&#10;4. sqrt(a) 연산 기능 추가&#10;5. sqrt(a) 기능 추가로 계산값 부분 수정 진행">
+      <option name="closed" value="true" />
+      <created>1741165199423</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1741165199423</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,6 +190,7 @@
     <MESSAGE value="LV1, LV2 완료" />
     <MESSAGE value="enum으로 기호 관리" />
     <MESSAGE value="개별 과제 완료" />
-    <option name="LAST_COMMIT_MESSAGE" value="개별 과제 완료" />
+    <MESSAGE value="개별 과제 개선판&#10;1. parseExpression 활용으로 수식 전체 입력 가능&#10;2. 정수 입력과 데이터 타입 변환 메서드를 분리하여 데이터 타입 변환 메서드 재활용&#10;3. ReadMe 추가&#10;4. sqrt(a) 연산 기능 추가&#10;5. sqrt(a) 기능 추가로 계산값 부분 수정 진행" />
+    <option name="LAST_COMMIT_MESSAGE" value="개별 과제 개선판&#10;1. parseExpression 활용으로 수식 전체 입력 가능&#10;2. 정수 입력과 데이터 타입 변환 메서드를 분리하여 데이터 타입 변환 메서드 재활용&#10;3. ReadMe 추가&#10;4. sqrt(a) 연산 기능 추가&#10;5. sqrt(a) 기능 추가로 계산값 부분 수정 진행" />
   </component>
 </project>

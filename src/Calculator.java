@@ -18,26 +18,57 @@ public class Calculator<T extends Number> {
         double fstValDouble = fstVal.doubleValue();
 
         if(operator.monomial()){
-            result = Math.sqrt(fstValDouble);
-            savedata = "sqrt(" + fstVal + ") = " + result;
+            String simBol = "";
+            switch (operator){
+                case sqrt:
+                    result = Math.sqrt(fstValDouble);
+                    simBol = "sqrt";
+                    break;
+                case log:
+                    if (fstValDouble <= 0) {
+                        throw new IllegalArgumentException("로그 값은 0보다 커야 합니다.");
+                    }
+                    result = Math.log(fstValDouble);
+                    simBol = "log";
+                    break;
+                case sin:
+                    result = Math.sin(Math.toRadians(fstValDouble));
+                    simBol = "sin";
+                    break;
+                case cos:
+                    result = Math.cos(Math.toRadians(fstValDouble));
+                    simBol = "cos";
+                    break;
+                case tan:
+                    result = Math.tan(Math.toRadians(fstValDouble));
+                    simBol = "tan";
+                    break;
+            }
+            savedata = simBol + "(" + fstVal + ")" + " = " + result;
         }else {
             double sndValDouble = sndVal.doubleValue();
             switch (operator) {
-                case add:
+                case add: // 더하기
                     result = fstValDouble + sndValDouble;
                     break;
-                case sub:
+                case sub: // 빼기
                     result = fstValDouble - sndValDouble;
                     break;
-                case mul:
+                case mul: // 곱하기
                     result = fstValDouble * sndValDouble;
                     break;
-                case div:
+                case div: // 나누기
                     if (sndValDouble == 0) {
                         System.out.println("분모에는 0이 들어갈 수 없습니다." + "\n");
                         return 0;
                     }
                     result = fstValDouble / sndValDouble;
+                    break;
+                case pow: // 거듭 제곱
+                    result = Math.pow(fstValDouble, sndValDouble);
+                    break;
+                case mod: // 나머지
+                    result = fstValDouble % sndValDouble;
                     break;
             }
             //필수 LV2 setter 사용 데이터 저장
