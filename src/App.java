@@ -47,18 +47,18 @@ public class App {
 
                 if(isUnaryOperator(parsed[0])) {
                     operatortype = OperatorType.getOperatorType(parsed[0].charAt(0)); // 한 글자로 변환된 값 사용
-                    fstVal = getdata(parsed[1]);
+                    fstVal = getData(parsed[1]);
                     sndVal = null;
                 } else {
-                    fstVal = getdata(parsed[0]);
+                    fstVal = getData(parsed[0]);
                     operatortype = OperatorType.getOperatorType(parsed[1].charAt(0));
-                    sndVal = getdata(parsed[2]);
+                    sndVal = getData(parsed[2]);
                 }
             } else {
-                fstVal = getdata(getnum(sc, "첫번째 숫자를 입력하세요."));
+                fstVal = getData(getNum(sc, "첫번째 숫자를 입력하세요."));
                 System.out.println();
-                operatortype = getdatasymol(sc, "사칙연산 기호를 입렵하세요(+, -, *, /)");
-                sndVal = getdata(getnum(sc, "두번째 숫자를 입력하세요."));
+                operatortype = getDataSymol(sc, "사칙연산 기호를 입렵하세요(+, -, *, /)");
+                sndVal = getData(getNum(sc, "두번째 숫자를 입력하세요."));
                 System.out.println();
             }
 
@@ -86,7 +86,7 @@ public class App {
             System.out.print("입력값 보다 큰 값을 출력할까요 ( y / n )\n: ");
             char yn = sc.next().charAt(0);
             if(yn == 'y'){
-                Number Value2 =  getdata(getnum(sc, "\n값을 입력 하세요"));
+                Number Value2 =  getData(getNum(sc, "\n값을 입력 하세요"));
                 List<Double> result2 = calculator.filterVal(Value2);
                 if(result2.isEmpty()){
                     System.out.println("\n목록");
@@ -114,14 +114,14 @@ public class App {
     }
 
     //정수 입력 받기 메서드
-    private static String getnum(Scanner sc, String msg){
+    private static String getNum(Scanner sc, String msg){
         System.out.println(msg);
         System.out.print(": ");
         return sc.next();
     }
 
     //제네릭 활용 데이터 타입 변환
-    private static <T extends Number> T getdata(String input) {
+    private static <T extends Number> T getData(String input) {
         try{
             if(input.contains(".")){
                 return (T) Double.valueOf(input);
@@ -136,7 +136,7 @@ public class App {
     }
 
     // 기호 입력받기 매서드
-    private static OperatorType getdatasymol(Scanner sc, String msg){
+    private static OperatorType getDataSymol(Scanner sc, String msg){
         System.out.println(msg);
         System.out.print(": ");
         while(true){
